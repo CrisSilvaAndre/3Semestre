@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        //Colocamos nuestra formula a analizar
+        string formula = "{7+(8*5)-[(9-7)+(4+1)]}";
+
+        // Realizamos los enunciados que comprueben o no la formula
+        if (IsBalanced(formula))
+        {
+            Console.WriteLine("La formula esta correctamente balanceada.");
+        }
+        else
+        {
+            Console.WriteLine("La fórmula no está balanceada.");
+        }
+    }
+
+    static bool IsBalanced(string formula)
+    {
+        Stack<char> stack = new Stack<char>();
+
+        foreach (char c in formula)
+        {
+            // Si el caracter de inicio es parentesis, se aprueba
+            if (c == '(' || c == '{' || c == '[')
+            {
+                stack.Push(c);
+            }
+            // Si el carácter de cierre es parentesis, se aprueba solo si el de inicio tambien lo es
+            else if (c == ')' || c == '}' || c == ']')
+            {
+                // Si no ahi parentesis o no se coincide, se niega la formula
+                if (stack.Count == 0)
+                {
+                    return false;
+                }
+
+                char open = stack.Pop();
+                if ((c == ')' && open != '(') ||
+                    (c == '}' && open != '{') ||
+                    (c == ']' && open != '['))
+                {
+                    return false;
+                }
+            }
+        }
+
+        return stack.Count == 0;
+    }
+}
+//Si cambiamos los datos de la linea 9, el resultado sera diferente
