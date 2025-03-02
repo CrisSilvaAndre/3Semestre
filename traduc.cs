@@ -61,7 +61,7 @@ class Traductor
 		}
 	}
 
-	// MC)todo para traducir una frase
+	// Metodo para traducir una frase
 	static void TraducirFrase(Dictionary<string, string> diccionario)
 	{
 		Console.Write("Ingrese la frase: ");
@@ -80,7 +80,7 @@ class Traductor
 			}
 			else if (diccionario.ContainsKey(palabra[0] + palabra.Substring(1).ToLower()))
 			{
-				// Si la palabra estC! en el diccionario pero con la primera letra en mayC:sculas
+				// Si la palabra esta en el diccionario pero con la primera letra en mayusculas
 				palabras[i] = diccionario[palabra[0] + palabra.Substring(1).ToLower()];
 			}
 		}
@@ -90,7 +90,7 @@ class Traductor
 		Console.WriteLine("\nSu frase traducida es: " + fraseTraducida);
 	}
 
-	// MC)todo para agregar nuevas palabras al diccionario
+	// Metodo para agregar nuevas palabras al diccionario
 	static void AgregarPalabra(Dictionary<string, string> diccionario)
 	{
 		Console.Write("Ingrese la palabra en ingles: ");
